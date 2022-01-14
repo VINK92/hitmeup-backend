@@ -1,0 +1,27 @@
+// {
+//   "currentLevel": "beginner",
+//   "email": "nazaruk.v92@gmail.com",
+//   "learnedWords": [],
+//   "myWords": [],
+//   "name": "Viktoriia",
+//   "notifications": true,
+//   "role": "admin",
+//   "startLevel": "beginner"
+// }
+// {
+//   "word": "instant",
+//   "translate": ["мгновенный", "моментальный"],
+//   "level": "intermediate",
+//   "image": "https://www.pexels.com/photo/photo-of-person-holding-an-instant-camera-3353653",
+//   "example": [
+//     { "translate": "мгновенное удовлетворение ", "usage": "Instant gratification " },
+//     { "translate": "Растворимый кофе", "usage": "Instant coffee" },
+//     { "translate": "Каждую секунду", "usage": "At every instant" }
+//   ]
+// }
+// {
+//   "image": "https://www.pexels.com/photo/focused-young-sportswoman-climbing-huge-cliff-in-ravine-4009355/",
+//   "level": "advanced",
+//   "phrase": "Hang in there!",
+//   "translate": ["Держись!", "Продожлай!", "Не сдавайся!"]
+// }
