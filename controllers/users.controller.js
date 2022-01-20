@@ -95,7 +95,20 @@ class UsersController {
     }
     next();
   }
-  // async validateUserSubscription(req, res, next) {
+  async validateUserRole(req, res, next) {
+    const validationRules = Joi.object({
+      role: Joi.string().required(),
+    });
+
+    const resValidation = validationRules.validate(req.body);
+
+    if (resValidation.error) {
+      return res.status(400).send({ message: "You dont have accses" });
+    }
+
+    next();
+  }
+  // async addWordToMyWords(req, res, next) {
   //   const validationRules = Joi.object({
   //     subscription: Joi.string().valid("free", "pro", "premium").required(),
   //   })
@@ -108,7 +121,7 @@ class UsersController {
 
   //   next()
   // }
-  // async upDateSubscription(req, res, next) {
+  // async addWordToLearned(req, res, next) {
   //   const {
   //     params: { userId },
   //   } = req
@@ -121,6 +134,8 @@ class UsersController {
   //     process.exit(1)
   //   }
   // }
+  async changeCurrentLevel(req, res, next) {}
+  async changeStartLevel(req, res, next) {}
 }
 
 module.exports = new UsersController();

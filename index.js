@@ -11,7 +11,8 @@ dotenv.config()
 const URI = process.env.URI_DB_CONTACTS
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), { flags: "a" })
-// const rentRouter = require("./routes/rent.routes")
+const wordsRouter = require("./routes/words.routes")
+const collocationsRouter = require("./routes/collocations.routes");
 const usersRouter = require("./routes/users.routes")
 
 const PORT = process.env.PORT || 8080
@@ -36,7 +37,8 @@ class Server {
   }
 
   initialRoutes() {
-    // this.server.use("/rent", rentRouter)
+    this.server.use("/collocations", collocationsRouter);
+    this.server.use("/words", wordsRouter);
     this.server.use("/", usersRouter)
     this.server.use("/images", express.static("public"))
   }
