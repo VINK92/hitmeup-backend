@@ -108,6 +108,15 @@ class UsersController {
 
     next();
   }
+  async getAllUsers(req, res, next) {
+    try {
+      const users = await User.find();
+      res.status(200).json(users);
+    } catch (error) {
+      console.log("Error: ", error);
+      process.exit(1);
+    }
+  }
   // async addWordToMyWords(req, res, next) {
   //   const validationRules = Joi.object({
   //     subscription: Joi.string().valid("free", "pro", "premium").required(),

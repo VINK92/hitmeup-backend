@@ -86,3 +86,4 @@
 ::ffff:127.0.0.1 - - [14/Jan/2022:21:30:05 +0000] "POST /auth/logout/61e191116b567275b380af14 HTTP/1.1" 204 - "-" "Thunder Client (https://www.thunderclient.io)"
 ::ffff:127.0.0.1 - - [14/Jan/2022:21:30:45 +0000] "POST /auth/logout/61e191116b567275b380af14 HTTP/1.1" 204 - "-" "Thunder Client (https://www.thunderclient.io)"
 ::ffff:127.0.0.1 - - [14/Jan/2022:21:30:46 +0000] "POST /auth/logout/61e191116b567275b380af14 HTTP/1.1" 204 - "-" "Thunder Client (https://www.thunderclient.io)"
+::ffff:127.0.0.1 - - [21/Jan/2022:14:34:36 +0000] "POST /auth/login HTTP/1.1" 201 188 "-" "Thunder Client (https://www.thunderclient.io)"
