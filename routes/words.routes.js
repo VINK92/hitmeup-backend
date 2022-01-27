@@ -10,16 +10,16 @@ const usersController = require("../controllers/users.controller");
  *  - add new word
  *  - delete one word
  */
-router.get("/words", wordController.getAllWords);
-router.get("/words/:wordId", wordController.getWordById);
+router.get("/getAllWords", wordController.getAllWords);
+router.get("/:wordId", wordController.getWordById);
 router.post(
-  "/words/new",
+  "/new",
   usersController.validateUserRole,
   wordController.validateCreateWord,
   wordController.addWord
 );
 router.post(
-  "/words/delete/:wordId",
+  "/delete/:wordId",
   usersController.validateUserRole,
   wordController.validateId,
   wordController.deleteWord

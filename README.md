@@ -49,17 +49,17 @@ https://github.com/DavidAnson/markdownlint/blob/v0.24.0/doc/Rules.md#md041
 
 # Routs for WORDS
 
-GET  /words                                    - get all words
+GET  /words/getAllWords                        - get all words
 GET  /words/:wordId                            - get one word by id
 POST /words/new                                - add new word
 POST /words/delete/:wordId                     - delete one word
 
 # Routs for COLLOCATIONS
 
-GET /collocations                              - get all collocations
-GET /collocations/:wordId                      - get one collocation by id
+GET /collocations/getAllCollocations           - get all collocations
+GET /collocations/:collocationId               - get one collocation by id
 POST /collocations/new                         - add new collocation
-POST /collocations/delete/:wordId              - delete one collocation
+POST /collocations/delete/:collocationId       - delete one collocation
 
 # Routs for USER
 

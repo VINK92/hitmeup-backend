@@ -37,9 +37,9 @@ class Server {
   }
 
   initialRoutes() {
+    this.server.use("/", usersRouter)
     this.server.use("/collocations", collocationsRouter);
     this.server.use("/words", wordsRouter);
-    this.server.use("/", usersRouter)
     this.server.use("/images", express.static("public"))
   }
 

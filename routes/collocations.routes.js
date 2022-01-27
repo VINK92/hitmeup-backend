@@ -10,16 +10,16 @@ const usersController = require("../controllers/users.controller");
  *  - add new collocation
  *  - delete one collocation
  */
-router.get("/collocations", collocationsController.getAllCollocations);
-router.get("/collocations/:wordId", collocationsController.getCollocationById);
+router.get("/getAllCollocations", collocationsController.getAllCollocations);
+router.get("/:collocationId", collocationsController.getCollocationById);
 router.post(
-  "/collocations/new",
+  "/new",
   usersController.validateUserRole,
   collocationsController.validateCreateCollocation,
   collocationsController.addCollocation
 );
 router.post(
-  "/collocations/delete/:wordId",
+  "/delete/:collocationId",
   usersController.validateUserRole,
   collocationsController.validateId,
   collocationsController.deleteCollocation
