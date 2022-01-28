@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const collocationsController = require("../controllers/collocation.controller");
-const usersController = require("../controllers/users.controller");
+const collocationsController = require("./collocation.controller");
+const validateController = require("../commonControllers/validation.controller");
 
 /**
  *  Routs for:
@@ -14,14 +14,14 @@ router.get("/getAllCollocations", collocationsController.getAllCollocations);
 router.get("/:collocationId", collocationsController.getCollocationById);
 router.post(
   "/new",
-  usersController.validateUserRole,
-  collocationsController.validateCreateCollocation,
+  validateController.validateUserRole,
+  validateController.validateCreateCollocation,
   collocationsController.addCollocation
 );
 router.post(
   "/delete/:collocationId",
-  usersController.validateUserRole,
-  collocationsController.validateId,
+  validateController.validateUserRole,
+  validateController.validateCollocationId,
   collocationsController.deleteCollocation
 );
 

@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const Word = require("../Model/Word");
+const Word = require("./Word");
 
 class WordsController {
   async getAllWords(req, res, next) {
@@ -54,37 +54,6 @@ class WordsController {
     } catch (e) {
       console.log("Error", e);
       return process.exit(1);
-    }
-  }
-  async validateCreateWord(req, res, next) {
-    const validationRules = Joi.object({
-      word: Joi.string().required(),
-      translate: Joi.array().required(),
-      level: Joi.string()
-        .valid("beginner", "intermediate", "advanced")
-        .required(),
-      image: Joi.string().required(),
-      example: Joi.array().required(),
-    });
-    const resValidation = validationRules.validate(req.body);
-    if (resValidation.error) {
-      return res.status(400).send(resValidation.error);
-    }
-    next();
-  }
-  async validateId(req, res, next) {
-    const {
-      params: { wordId },
-    } = req;
-    try {
-      const word = await Word.findById(wordId);
-      if (!word) {
-        return res.status(404).send({ message: "Not found" });
-      }
-      next();
-    } catch (error) {
-      console.log("Error: ", error);
-      process.exit(1);
     }
   }
 }

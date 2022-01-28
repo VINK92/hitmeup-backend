@@ -17,7 +17,9 @@
   "currentLevel": "beginner",
   "role": "admin",
   "learnedWords": [],
+  "learnedColocations": [],
   "myWords": [],
+  "myColocations": [],
   "notifications": true,
   "token": "",
 }

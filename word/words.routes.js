@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const wordController = require("../controllers/word.controller");
-const usersController = require("../controllers/users.controller");
+const wordController = require("../word/word.controller");
+const validateController = require("../commonControllers/validation.controller");
 
 /**
  *  Routs for:
@@ -14,14 +14,14 @@ router.get("/getAllWords", wordController.getAllWords);
 router.get("/:wordId", wordController.getWordById);
 router.post(
   "/new",
-  usersController.validateUserRole,
-  wordController.validateCreateWord,
+  validateController.validateUserRole,
+  validateController.validateCreateWord,
   wordController.addWord
 );
 router.post(
   "/delete/:wordId",
-  usersController.validateUserRole,
-  wordController.validateId,
+  validateController.validateUserRole,
+  validateController.validateWordId,
   wordController.deleteWord
 );
 

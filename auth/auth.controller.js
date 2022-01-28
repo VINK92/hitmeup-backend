@@ -1,9 +1,8 @@
-const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../Model/User");
+const User = require("../user/User");
 
-class UsersController {
+class AuthController {
   async register(req, res, next) {
     try {
       const isUniqueEmail = await User.findOne({ email: req.body.email });
@@ -60,21 +59,6 @@ class UsersController {
       });
     }
   }
-  async validateUser(req, res, next) {
-    const validationRules = Joi.object({
-      email: Joi.string().required(),
-      password: Joi.string().required(),
-    });
-
-    const resValidation = validationRules.validate(req.body);
-
-    if (resValidation.error) {
-      return res.status(400).send(resValidation.error);
-    }
-
-    next();
-  }
-  async validateToken(req, res, next) {}
   async authorize(req, res, next) {
     try {
       const authHeader = req.get("Authorization");
@@ -95,56 +79,6 @@ class UsersController {
     }
     next();
   }
-  async validateUserRole(req, res, next) {
-    const validationRules = Joi.object({
-      role: Joi.string().required(),
-    });
-
-    const resValidation = validationRules.validate(req.body);
-
-    if (resValidation.error) {
-      return res.status(400).send({ message: "You dont have accses" });
-    }
-
-    next();
-  }
-  async getAllUsers(req, res, next) {
-    try {
-      const users = await User.find();
-      res.status(200).json(users);
-    } catch (error) {
-      console.log("Error: ", error);
-      process.exit(1);
-    }
-  }
-  // async addWordToMyWords(req, res, next) {
-  //   const validationRules = Joi.object({
-  //     subscription: Joi.string().valid("free", "pro", "premium").required(),
-  //   })
-
-  //   const validationResult = validationRules.validate(req.body)
-
-  //   if (validationResult.error) {
-  //     return res.status(400).send(validationResult.error.message)
-  //   }
-
-  //   next()
-  // }
-  // async addWordToLearned(req, res, next) {
-  //   const {
-  //     params: { userId },
-  //   } = req
-
-  //   try {
-  //     const updatedUser = await User.findOneAndUpdate(userId, req.body.subscription, { new: true })
-  //     res.status(200).json(updatedUser)
-  //   } catch (error) {
-  //     console.log("Error: ", error)
-  //     process.exit(1)
-  //   }
-  // }
-  async changeCurrentLevel(req, res, next) {}
-  async changeStartLevel(req, res, next) {}
 }
 
-module.exports = new UsersController();
+module.exports = new AuthController();

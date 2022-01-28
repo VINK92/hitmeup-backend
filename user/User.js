@@ -28,13 +28,25 @@ const user = new Schema({
     required: true,
   },
   learnedWords: {
-    type: Array,
+    type: [{ type: String }],
+    default: [],
+    required: true,
+  },
+  learnedCollocations: {
+    type: [{ type: String }],
     default: [],
     required: true,
   },
   myWords: {
-    type: Array,
+    type: [{ type: String }],
     default: [],
+    ref: "Word",
+    required: true,
+  },
+  myCollocations: {
+    type: [{ type: String }],
+    default: [],
+    ref: "Collocation",
     required: true,
   },
   notifications: {
