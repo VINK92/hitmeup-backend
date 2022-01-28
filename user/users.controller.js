@@ -34,6 +34,7 @@ class UsersController {
       process.exit(1);
     }
   }
+  async addAvatar(req, res, next) {}
   async changeCurrentLevel(req, res, next) {}
   async changeStartLevel(req, res, next) {}
   async addToMyWords(req, res, next) {}
@@ -43,7 +44,8 @@ class UsersController {
   async deleteFromMyWords(req, res, next) {}
   async deleteFromLearnedWords(req, res, next) {}
   async deleteFromMyCollocations(req, res, next) {}
-  async deleteFromLearnedCollocations(req, res, next) {}
+  async deleteFromLearnedCollocations(req, res, next) { }
+  async updateNotifications(req, res, next){}
 }
 
 module.exports = new UsersController();
