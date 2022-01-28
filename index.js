@@ -47,7 +47,7 @@ class Server {
     this.server.use("/admin", adminRouter);
     this.server.use("/collocations", collocationsRouter);
     this.server.use("/words", wordsRouter);
-    // this.server.use("/images", express.static("public"));
+    this.server.use(express.static("public"));
     this.server.use("*", (req, res) => {
       res.sendFile("text.html", "/public");
     });
