@@ -35,7 +35,7 @@ class AuthController {
       const token = jwt.sign(
         {
           userId: user._id,
-          exp: Math.floor(Date.now() / 1000) + 1 * 60,
+          exp: Math.floor(Date.now() / 1000) + 30 * 60,
         },
         process.env.JWT_SECRET
       );
@@ -68,16 +68,15 @@ class AuthController {
       const token = authHeader.replace("Bearer ", "");
       const payload = jwt.verify(token, process.env.JWT_SECRET);
       const { userId, exp } = payload;
-      console.log("expires", exp);
       const user = await User.findById(userId);
-      if (!user || exp < Date.now()) {
+      if (!user || exp < Date.now() / 1000) {
         return res.status(401).send("User is unauthorize");
       }
       req.user = user;
+      next();
     } catch (error) {
       res.status(401).send(error);
     }
-    next();
   }
 }
 

@@ -21,7 +21,6 @@ router.post(
 router.post(
   "/delete/:wordId",
   validateController.validateUserRole,
-  validateController.validateWordId,
   wordController.deleteWord
 );
 
