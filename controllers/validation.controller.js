@@ -21,10 +21,19 @@ class ValidationController {
   }
   async validateToken(req, res, next) {}
 
+  async validateAdminRole(req, res, next) {
+    const validationRules = Joi.valid("admin").required();
+
+    const resValidation = validationRules.validate(req.body.role);
+    if (resValidation.error) {
+      console.log(resValidation.error);
+      return res.status(400).send({ message: "You dont have accses" });
+    }
+
+    next();
+  }
   async validateUserRole(req, res, next) {
-    const validationRules = Joi.object({
-      role: Joi.string().required(),
-    });
+    const validationRules = Joi.valid("user").required();
 
     const resValidation = validationRules.validate(req.body.role);
 

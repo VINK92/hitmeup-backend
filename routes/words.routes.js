@@ -14,7 +14,7 @@ router.get("/getAllWords", wordController.getAllWords);
 router.get("/:wordId", wordController.getWordById);
 router.post(
   "/new",
-  validateController.validateUserRole,
+  validateController.validateAdminRole,
   validateController.validateCreateWord,
   wordController.addWord
 );
