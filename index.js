@@ -48,6 +48,7 @@ class Server {
     this.server.use("/collocations", collocationsRouter);
     this.server.use("/words", wordsRouter);
     this.server.use("/api", express.static("public/api/routes.png"));
+    this.server.use('/health',() => 200)
   }
 
   listen() {
