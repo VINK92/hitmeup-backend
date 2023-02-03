@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const Word = require("./Word");
+const Word = require("../models/Word");
 
 class WordsController {
   async getAllWords(req, res, next) {

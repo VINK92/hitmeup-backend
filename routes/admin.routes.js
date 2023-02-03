@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const router = Router();
-const adminController = require("./admin.controller");
-const authController = require("../auth/auth.controller");
-const validationController = require("../commonControllers/validation.controller");
+const adminController = require("../controllers/admin.controller");
+const authController = require("../controllers/auth.controller");
+const validationController = require("../controllers/validation.controller");
 
 router.get(
   "/users",

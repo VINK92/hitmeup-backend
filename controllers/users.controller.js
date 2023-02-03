@@ -1,8 +1,8 @@
 const Joi = require("joi");
 // const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
-const User = require("../user/User");
-const Word = require("../word/Word");
+const User = require("../models/User");
+const Word = require("../models/Word");
 
 class UsersController {
   async addWordToMyWords(req, res, next) {

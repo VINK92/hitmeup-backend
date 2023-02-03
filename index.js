@@ -14,11 +14,11 @@ const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
   { flags: "a" }
 );
-const authRouter = require("./auth/auth.routes");
-const usersRouter = require("./user/users.routes");
-const adminRouter = require("./admin/admin.routes");
-const wordsRouter = require("./word/words.routes");
-const collocationsRouter = require("./collocation/collocation.routes");
+const authRouter = require("./routes/auth.routes");
+const usersRouter = require("./routes/users.routes");
+const adminRouter = require("./routes/admin.routes");
+const wordsRouter = require("./routes/words.routes");
+const collocationsRouter = require("./routes/collocation.routes");
 
 const PORT = process.env.PORT || 8080;
 

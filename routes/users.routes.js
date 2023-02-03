@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const router = Router();
-const usersController = require("../user/users.controller");
-const authController = require("../auth/auth.controller");
-const validationController = require("../commonControllers/validation.controller");
-const wordController = require("../word/word.controller");
+const usersController = require("../controllers/users.controller");
+const authController = require("../controllers/auth.controller");
+const validationController = require("../controllers/validation.controller");
+const wordController = require("../controllers/word.controller");
 
 router.post(
   "/:userId/add-to-my-words/:wordId",

@@ -1,8 +1,8 @@
 const Joi = require("joi");
 // const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
-const Word = require("../word/Word");
-const Collocation = require("../collocation/Collocation");
+const Word = require("../models/Word");
+const Collocation = require("../models/Collocation");
 
 class ValidationController {
   async validateUser(req, res, next) {

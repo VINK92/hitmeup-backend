@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const collocationsController = require("./collocation.controller");
-const validateController = require("../commonControllers/validation.controller");
+const collocationsController = require("../controllers/collocation.controller");
+const validateController = require("../controllers/validation.controller");
 
 /**
  *  Routs for:

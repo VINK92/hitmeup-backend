@@ -1,4 +1,4 @@
-const Collocation = require("./Collocation");
+const Collocation = require("../models/Collocation");
 
 class CollocationsController {
   async getAllCollocations(req, res, next) {
@@ -54,7 +54,6 @@ class CollocationsController {
       return process.exit(1);
     }
   }
-
 }
 
 module.exports = new CollocationsController();

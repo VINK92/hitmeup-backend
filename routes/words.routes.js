@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const wordController = require("../word/word.controller");
-const validateController = require("../commonControllers/validation.controller");
+const wordController = require("../controllers/word.controller");
+const validateController = require("../controllers/validation.controller");
 
 /**
  *  Routs for:
