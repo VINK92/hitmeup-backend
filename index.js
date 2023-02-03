@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 const { static } = require("express");
 
 dotenv.config();
-const URI = process.env.URI_DB_CONTACTS;
+const URI = process.env.URI_DB_HIT_ME_UP;
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -21,7 +21,7 @@ const wordsRouter = require("./routes/words.routes");
 const collocationsRouter = require("./routes/collocation.routes");
 
 const PORT = process.env.PORT || 8080;
-
+mongoose.set("strictQuery", false);
 class Server {
   start() {
     this.server = express();
@@ -62,7 +62,6 @@ class Server {
         await mongoose.connect(URI, {
           useNewUrlParser: true,
           useUnifiedTopology: true,
-          useFindAndModify: false,
         })
       ) {
         console.log("Database connection successful");
