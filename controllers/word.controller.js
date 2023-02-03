@@ -40,12 +40,13 @@ class WordsController {
   }
   async addWord(req, res, next) {
     try {
+      const value = req.body.value;
       const newWord = new Word({
-        word: req.body.word,
-        translate: req.body.translate,
-        level: req.body.level,
-        image: req.body.image,
-        example: req.body.example,
+        word: value.word,
+        translate: value.translate,
+        level: value.level,
+        image: value.image,
+        example: value.example,
       });
       await newWord.save();
       res.status(201).send({ message: "Word added successfully" });

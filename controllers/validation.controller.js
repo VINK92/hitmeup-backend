@@ -26,7 +26,7 @@ class ValidationController {
       role: Joi.string().required(),
     });
 
-    const resValidation = validationRules.validate(req.body);
+    const resValidation = validationRules.validate(req.body.role);
 
     if (resValidation.error) {
       return res.status(400).send({ message: "You dont have accses" });
@@ -45,7 +45,7 @@ class ValidationController {
       image: Joi.string().required(),
       example: Joi.array().required(),
     });
-    const resValidation = validationRules.validate(req.body);
+    const resValidation = validationRules.validate(req.body.word);
     if (resValidation.error) {
       return res.status(400).send(resValidation.error);
     }
